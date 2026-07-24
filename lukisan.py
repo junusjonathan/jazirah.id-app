@@ -1,5 +1,6 @@
 import streamlit as st
 import streamlit.components.v1 as components
+import joblib # Tambahin di jejeran import paling atas
 from PIL import Image
 import time
 import pickle
@@ -8,18 +9,12 @@ import cv2
 import os
 import base64
 import json
-import joblib # Tambahin di jejeran import paling atas
 from skimage.feature import graycomatrix, graycoprops, local_binary_pattern, hog
 
 # ============================================================
 # 0. PATH DASAR PROYEK
 # ============================================================
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
-
-# ============================================================
-# 1. LOAD MODEL MACHINE LEARNING
-# ============================================================
-import joblib # ⚠️ PENTING: Pindahkan baris ini ke jejeran import paling atas di app.py lu ya!
 
 # ============================================================
 # 1. LOAD MODEL MACHINE LEARNING
@@ -37,7 +32,7 @@ def load_ml_components():
         st.error(f"Gagal memuat file .pkl! Detail error: {e}")
         return None, None
 
-scaler, model_rf = load_ml_components()
+# scaler, model_rf = load_ml_components()
 
 # ============================================================
 # TUGAS LU SELANJUTNYA: GANTI ISI FUNGSI INI DENGAN KODE ASLI
