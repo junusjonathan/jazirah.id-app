@@ -263,6 +263,7 @@ html, body, [class*="css"] {
     box-shadow: 4px 0 24px rgba(0,0,0,0.05) !important;
     padding: 0 !important;
     width: 260px !important;
+    z-index: 999999 !important;
 }
 [data-testid="stSidebar"] > div:first-child,
 [data-testid="stSidebarContent"] {
@@ -682,7 +683,8 @@ nav_items = ""
 for i, item in enumerate(MENU_META):
     active_cls = " active" if i == _active_idx else ""
     nav_items += (
-        f'<a class="sb-nav-item{active_cls}" href="?page={item["slug"]}" target="_top">'
+        # ⚠️ UBAH target="_top" MENJADI target="_self" DI BARIS BAWAH INI
+        f'<a class="sb-nav-item{active_cls}" href="?page={item["slug"]}" target="_self">'
         f'<span class="sb-nav-icon">{item["icon"]}</span>'
         f'<span>{item["label"]}</span>'
         f'<span class="sb-nav-arrow">›</span>'
